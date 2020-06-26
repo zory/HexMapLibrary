@@ -1,0 +1,92 @@
+###################
+# Git LFS variant #
+###################
+* text
+
+# Images #
+##########
+*.jpg binary
+*.jpeg binary
+*.tga binary
+*.png binary
+*.gif binary
+*.bmp binary
+*.psd binary
+*.tif binary
+*.tiff binary
+*.exr binary
+*.ai binary
+
+# Three Dimensional #
+#####################
+*.fbx binary
+*.max binary
+*.3ds binary
+*.obj binary
+*.blend binary
+
+# Audio #
+#########
+*.mp3 binary
+*.wav binary
+*.ogg binary
+*.wma binary
+
+# Video #
+#########
+*.mp4 binary
+*.mov binary
+
+# Font #
+########
+*.otf binary
+*.ttf binary
+*.ttc binary
+*.pfb binary
+*.pfm binary
+*.dfont binary
+*.pfa binary
+*.afm binary
+
+# Compressions #
+################
+*.zip binary
+
+# Document text #
+#################
+*.odt binary
+*.pdf binary
+
+# Code, plugin, development etc. #
+##################################
+*.exe binary
+*.dll binary
+*.winmd binary
+*.so binary
+*.pdb binary
+*.pri binary
+*.pfx binary
+*.jar binary
+*.xbf binary
+*.exp binary
+*.lib binary
+*.iobj binary
+*.mdb binary
+*.keystore binary
+*.aar binary
+*.bundle binary
+*.a binary
+*.plist binary
+*.vsix binary
+
+#NavMesh is always binary, regardless of metadata settings
+*NavMesh.asset binary
+#Lighning data is always binary
+*LightingData.asset binary
+
+# Plugin Specific #
+###################
+*.dll_* binary
+*inklecate_mac binary
+
+*.meta text
