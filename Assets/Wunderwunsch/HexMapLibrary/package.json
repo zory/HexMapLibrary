@@ -1,0 +1,10 @@
+{
+	"name": "com.wunderwunsch.hexmaplibrary",
+	"displayName": "Hex Grid Map Library",
+	"description": "Hex Grid Map Library",
+	"version": "1.0.0",
+	"unity": "2018.3",
+	"license": "MIT",
+	"dependencies": {
+	}
+}
