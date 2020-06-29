@@ -13,6 +13,19 @@ namespace Wunderwunsch.HexMapLibrary
     /// </remarks>
     public static class HexMapBuilder
     {
+        public static Dictionary<Vector3Int, int> CreateCustomShapedMap(List<Vector2Int> offsetCoords)
+        {
+            Vector3IntEqualityComparer vector3IntEqualityComparer = new Vector3IntEqualityComparer();
+            Dictionary<Vector3Int, int> TileToIndexMap = new Dictionary<Vector3Int, int>(vector3IntEqualityComparer);
+            int idx = 0;
+            foreach (var coords in offsetCoords)
+            {
+                Vector3Int cubeTileCoord = HexConverter.OffsetTileCoordToTileCoord(coords);
+                TileToIndexMap.Add(cubeTileCoord, idx);
+                idx++;
+            }
+            return TileToIndexMap;
+        }
         /// <summary>
         /// returns indexed positions which form a flat-top hexagonal shaped map with the specified radius
         /// </summary>
