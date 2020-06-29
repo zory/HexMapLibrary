@@ -26,7 +26,7 @@ namespace Wunderwunsch.HexMapLibrary.Examples
         void Start ()
         {
             hexMap = new HexMap<int>(HexMapBuilder.CreateHexagonalShapedMap(mapRadius), null); //creates a HexMap using one of the pre-defined shapes in the static MapBuilder Class            
-            hexMouse = gameObject.AddComponent<HexMouse>(); //we attach the HexMouse script to the same gameObject this script is attached to, could also attach it anywhere else
+            hexMouse = new HexMouse(); //we attach the HexMouse script to the same gameObject this script is attached to, could also attach it anywhere else
             hexMouse.Init(hexMap); //initializes the HexMouse 
             
             InitMap();

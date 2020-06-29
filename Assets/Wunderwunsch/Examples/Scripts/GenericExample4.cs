@@ -28,7 +28,7 @@ namespace Wunderwunsch.HexMapLibrary.Examples
         void Start()
         {
             hexMap = new HexMap<int, bool, bool>(HexMapBuilder.CreateRectangularShapedMapOddRowsOneShorter(mapSize), null);
-            hexMouse = gameObject.AddComponent<HexMouse>();
+            hexMouse = new HexMouse();
             hexMouse.Init(hexMap);
 
             InitMap();            
