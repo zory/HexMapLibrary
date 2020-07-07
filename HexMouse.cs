@@ -5,7 +5,7 @@ namespace Wunderwunsch.HexMapLibrary
     /// <summary>
     /// Updates every frame with the position of the mouse cursor on the XZ-Plane in different coordinate systems. 
     /// </summary>
-    public class HexMouse
+    public class HexMouse 
     {
         /// <summary>
         /// Map which is assigned to the mouse - should always be the current visible map in cases where you have multiple maps.
@@ -78,9 +78,16 @@ namespace Wunderwunsch.HexMapLibrary
         /// <summary>
         /// Call this at start of game or when the map changes to assign the HexMap
         /// </summary>        
-        public void Init(HexMap hexMap)
+        public void Init(HexMap hexMap, bool useMonoBehaviourHelper = true)
         {
             this.hexMap = hexMap;
+            if (useMonoBehaviourHelper)
+            {
+                var go = new GameObject();
+                go.name = "HexMapMouseHelper";
+                var hexMouseMonoBehaviour = go.AddComponent<HexMouseMonoBehaviour>();
+                hexMouseMonoBehaviour.Init(UpdateMousePositionData);
+            }
         }
 
         /// <summary>
