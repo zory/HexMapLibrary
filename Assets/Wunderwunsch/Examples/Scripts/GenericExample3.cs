@@ -47,7 +47,7 @@ namespace Wunderwunsch.HexMapLibrary.Examples
         {
             hexMap = new HexMap<MyTile, MyEdge>(HexMapBuilder.CreateRectangularShapedMapOddRowsOneShorter(mapSize), null);
             hexMouse = new HexMouse(); 
-            hexMouse.Init(hexMap); 
+            hexMouse.Init(hexMap, true); 
 
             InitMap();
             reachableTilesMarkers = new List<GameObject>();

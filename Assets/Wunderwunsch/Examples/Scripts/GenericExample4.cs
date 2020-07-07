@@ -29,7 +29,7 @@ namespace Wunderwunsch.HexMapLibrary.Examples
         {
             hexMap = new HexMap<int, bool, bool>(HexMapBuilder.CreateRectangularShapedMapOddRowsOneShorter(mapSize), null);
             hexMouse = new HexMouse();
-            hexMouse.Init(hexMap);
+            hexMouse.Init(hexMap, true);
 
             InitMap();            
             SetupCamera();

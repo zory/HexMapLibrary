@@ -37,7 +37,7 @@ public class AlignedArraysExample1 : MonoBehaviour
         tileObjects = new GameObject[hexMap.TileCount];
 
         hexMouse = new HexMouse();
-        hexMouse.Init(hexMap);
+        hexMouse.Init(hexMap, true);
         SetupCamera();
         InitMapData();
         InitMapVisualisation();
