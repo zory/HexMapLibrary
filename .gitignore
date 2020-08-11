@@ -70,5 +70,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # Project Specific
-/[Aa]ssets/Wunderwunsch/HexMapLibrary/package.json.meta
 /[Aa]ssets/Wunderwunsch/HexMapLibrary/package-lock.json.meta
