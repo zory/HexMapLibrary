@@ -4,6 +4,9 @@ using UnityEngine;
 using Wunderwunsch.HexMapLibrary;
 using Wunderwunsch.HexMapLibrary.Generic;
 using System.Linq;
+#if ENABLE_INPUT_SYSTEM
+using UnityEngine.InputSystem;
+#endif
 
 namespace Wunderwunsch.HexMapLibrary.Examples
 { 
@@ -40,7 +43,12 @@ namespace Wunderwunsch.HexMapLibrary.Examples
 
             Vector3Int mouseTilePosition = hexMouse.TileCoord;
 
+#if ENABLE_INPUT_SYSTEM
+            if (Mouse.current.leftButton.wasPressedThisFrame)
+#endif
+#if ENABLE_LEGACY_INPUT_MANAGER
             if (Input.GetMouseButtonDown(0))
+#endif
             {
                 var visibleTiles = CalculateVisibleTiles(mouseTilePosition, 5);
                 UpdateVisionMarkers(visibleTiles);

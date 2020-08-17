@@ -4,7 +4,9 @@ using UnityEngine;
 using Wunderwunsch.HexMapLibrary;
 using Wunderwunsch.HexMapLibrary.Generic;
 using System.Linq;
-
+#if ENABLE_INPUT_SYSTEM
+using UnityEngine.InputSystem;
+#endif
 
 namespace Wunderwunsch.HexMapLibrary.Examples
 {
@@ -59,7 +61,12 @@ namespace Wunderwunsch.HexMapLibrary.Examples
         {
             if (!hexMouse.CursorIsOnMap) return;
 
+#if ENABLE_INPUT_SYSTEM
+            if (Mouse.current.leftButton.wasPressedThisFrame || Mouse.current.rightButton.wasPressedThisFrame)
+#endif
+#if ENABLE_LEGACY_INPUT_MANAGER
             if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+#endif
             {
                 List<Tile<MyTile>> reachableTiles = CalculateReachableTiles(hexMouse.TileCoord);
                 UpdateReachableTileVisuals(reachableTiles);

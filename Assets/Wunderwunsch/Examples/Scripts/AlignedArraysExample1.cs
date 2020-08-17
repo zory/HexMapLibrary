@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Wunderwunsch.HexMapLibrary;
+#if ENABLE_INPUT_SYSTEM
+using UnityEngine.InputSystem;
+#endif
 
 /// <summary>
 /// In this example we use the non-generic version of HexMap and store the tile data in a simple array which we keep aligned to the indices of the map tiles.
@@ -46,7 +49,12 @@ public class AlignedArraysExample1 : MonoBehaviour
     void Update()
     {
         if (!hexMouse.CursorIsOnMap) return;
+#if ENABLE_INPUT_SYSTEM
+        if (Mouse.current.leftButton.wasPressedThisFrame || Mouse.current.rightButton.wasPressedThisFrame)
+#endif
+#if ENABLE_LEGACY_INPUT_MANAGER
         if(Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) //we cycle through the terrain values when clicking on a tile
+#endif
         {
             Vector3Int curTile = hexMouse.TileCoord;
             int idx = hexMap.TileIndexByPosition[curTile];

@@ -13,14 +13,14 @@ namespace Wunderwunsch.HexMapLibrary
     /// </remarks>
     public static class HexMapBuilder
     {
-        public static Dictionary<Vector3Int, int> CreateCustomShapedMap(List<Vector3Int> cubicCoords)
+        public static Dictionary<Vector3Int, int> CreateCustomShapedMap(List<Vector3Int> tileCoords)
         {
             Vector3IntEqualityComparer vector3IntEqualityComparer = new Vector3IntEqualityComparer();
             Dictionary<Vector3Int, int> TileToIndexMap = new Dictionary<Vector3Int, int>(vector3IntEqualityComparer);
             int idx = 0;
-            foreach (var coords in cubicCoords)
+            foreach (var tileCoord in tileCoords)
             {
-                TileToIndexMap.Add(coords, idx);
+                TileToIndexMap.Add(tileCoord, idx);
                 idx++;
             }
             return TileToIndexMap;

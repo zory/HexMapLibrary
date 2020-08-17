@@ -1,6 +1,8 @@
-﻿
-using System;
+﻿using System;
 using UnityEngine;
+#if ENABLE_INPUT_SYSTEM
+using UnityEngine.InputSystem;
+#endif
 
 namespace Wunderwunsch.HexMapLibrary
 {
@@ -27,7 +29,13 @@ namespace Wunderwunsch.HexMapLibrary
 		private Vector3 GetPlanePosition()
 		{
 			//Debug.Log("plane Normal: " + plane.normal);
-			Vector3 mousePos = Input.mousePosition;
+			Vector3 mousePos = Vector3.zero;
+#if ENABLE_INPUT_SYSTEM
+			mousePos = Mouse.current.position.ReadValue();
+#endif
+#if ENABLE_LEGACY_INPUT_MANAGER
+			mousePos = Input.mousePosition;
+#endif
 			//Debug.Log(mousePos);            
 
 			Ray ray = Camera.main.ScreenPointToRay(mousePos);

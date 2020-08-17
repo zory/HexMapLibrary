@@ -4,6 +4,9 @@ using UnityEngine;
 using Wunderwunsch.HexMapLibrary;
 using Wunderwunsch.HexMapLibrary.Generic;
 using System.Linq;
+#if ENABLE_INPUT_SYSTEM
+using UnityEngine.InputSystem;
+#endif
 
 namespace Wunderwunsch.HexMapLibrary.Examples
 {
@@ -70,7 +73,12 @@ namespace Wunderwunsch.HexMapLibrary.Examples
 
             //leftclick to place road
             //we are allowed to place an edge if there is 1) a city adjacent or 2) a road adjacent 3) the edge is not surrounded by water tiles
+#if ENABLE_INPUT_SYSTEM
+            if (Mouse.current.leftButton.wasPressedThisFrame)
+#endif
+#if ENABLE_LEGACY_INPUT_MANAGER
             if (Input.GetMouseButtonDown(0))
+#endif
             {
                 Vector3Int edgePos = hexMouse.ClosestEdgeCoord;
                 Edge<bool> edge = hexMap.EdgesByPosition[edgePos];
@@ -97,7 +105,12 @@ namespace Wunderwunsch.HexMapLibrary.Examples
             //rightclick to place city
             //we are allowed to place a city if 1) there is a road adjacent 2) there is no other city within a distance of 2
             //we can skip checking if the corner is completely surrounded by water because we already ensure that there will never be a road leading there.
+#if ENABLE_INPUT_SYSTEM
+            if (Mouse.current.rightButton.wasPressedThisFrame)
+#endif
+#if ENABLE_LEGACY_INPUT_MANAGER
             else if(Input.GetMouseButtonDown(1))
+#endif
             {
                 Vector3Int cornerPos = hexMouse.ClosestCornerCoord;
                 Corner<bool> corner = hexMap.CornersByPosition[cornerPos];

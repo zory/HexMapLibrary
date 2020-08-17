@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Wunderwunsch.HexMapLibrary;
 using Wunderwunsch.HexMapLibrary.Generic;
+#if ENABLE_INPUT_SYSTEM
+using UnityEngine.InputSystem;
+#endif
 
 namespace Wunderwunsch.HexMapLibrary.Examples
 { 
@@ -73,7 +76,12 @@ namespace Wunderwunsch.HexMapLibrary.Examples
             edgeMarker.transform.rotation = Quaternion.Euler(0, hexMap.EdgesByPosition[mouseEdgePosition].EdgeAlignmentAngle, 0); //we set the rotation of the edge marker
             cornerMarker.transform.position = HexConverter.CornerCoordToCartesianCoord(mouseCornerPosition);
 
+#if ENABLE_INPUT_SYSTEM
+            if (Mouse.current.leftButton.wasPressedThisFrame)
+#endif
+#if ENABLE_LEGACY_INPUT_MANAGER
             if (Input.GetMouseButtonDown(0)) // change a tile when clicked on it
+#endif
             {
                 Tile<int> t = hexMap.TilesByPosition[mouseTilePosition]; //we select the tile our mouse is on
                 int curValue = t.Data; //we grab the current value of the tile

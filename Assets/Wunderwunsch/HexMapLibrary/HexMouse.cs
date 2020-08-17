@@ -1,4 +1,7 @@
 ﻿using UnityEngine;
+#if ENABLE_INPUT_SYSTEM
+using UnityEngine.InputSystem;
+#endif
 
 namespace Wunderwunsch.HexMapLibrary
 {
@@ -111,7 +114,14 @@ namespace Wunderwunsch.HexMapLibrary
             ClosestCornerCoordInfiniteGrid = HexConverter.CartesianCoordToClosestCornerCoord(CartesianCoordInfiniteGrid);
             ClosestCornerCoord = ClosestCornerCoordInfiniteGrid;
 
-            SelectionRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Vector3 mousePosition = Vector3.zero;
+#if ENABLE_INPUT_SYSTEM
+            mousePosition = Mouse.current.position.ReadValue();
+#endif
+#if ENABLE_LEGACY_INPUT_MANAGER
+            mousePosition = Input.mousePosition
+#endif
+            SelectionRay = Camera.main.ScreenPointToRay(mousePosition);
 
 
             if (hexMap != null)
