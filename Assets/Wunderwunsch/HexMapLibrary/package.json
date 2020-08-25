@@ -2,6 +2,6 @@
 	"name": "com.wunderwunsch.hexmaplibrary",
 	"displayName": "HexGridMapLibrary",
 	"description": "Hex Grid Map Library",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"unity": "2020.1"
 }
