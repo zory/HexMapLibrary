@@ -105,6 +105,7 @@ namespace Wunderwunsch.HexMapLibrary
             }
             this.GetTilePosition = new TilePositionProvider(coordinateWrapper, tileIndexByPosition);
             this.GetTilePositions = new TilePositionsProvider(coordinateWrapper, tileIndexByPosition);
+            this.GetTileDistance = new MapDistanceCalculatorTile(coordinateWrapper);
 
             MapSizeData = HexUtility.CalculateMapCenterAndExtents(TileIndexByPosition.Keys);
 
